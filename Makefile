@@ -5,7 +5,6 @@ CPPFLAGS=-Wall
 all: rx tx rx_status_test
 
 
-
 %.o: %.c
 	gcc -c -o $@ $< $(CPPFLAGS)
 
@@ -22,5 +21,5 @@ rx_status_test: rx_status_test.o
 	gcc -o $@ $^ $(LDFLAGS)
 
 clean:
-	rm -f rx tx *~ *.o
+	rm -f rx_status_test rx tx *~ *.o
 
