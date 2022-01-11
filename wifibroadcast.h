@@ -15,12 +15,14 @@
 #include <fcntl.h>
 #include <time.h>
 #include <sys/mman.h>
+#include <stdint.h>
 
-typedef unsigned int u32;
-typedef unsigned short u16;
-typedef unsigned char u8;
+typedef uint32_t u32;
+typedef uint16_t u16;
+typedef uint8_t u8;
 typedef u32 __le32;
 
+// TODO: change __BYTE_ORDER to __BYTE_ORDER__ ?
 #if __BYTE_ORDER == __LITTLE_ENDIAN
 #define	le16_to_cpu(x) (x)
 #define	le32_to_cpu(x) (x)
