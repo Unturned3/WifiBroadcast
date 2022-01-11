@@ -1,1 +1,5 @@
 .vscode
+*.o
+tx
+rx
+rx_status_test
