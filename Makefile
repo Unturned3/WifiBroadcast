@@ -1,25 +1,22 @@
 
-LDFLAGS=-lrt -lpcap
-CPPFLAGS=-Wall
+CC = gcc
+LDFLAGS = -lrt -lpcap
+CPPFLAGS = -Wall
 
-all: rx tx rx_status_test
-
+all: tx rx rx_status_test
 
 %.o: %.c
-	gcc -c -o $@ $< $(CPPFLAGS)
-
+	$(CC) $(CPPFLAGS) -c $< -o $@
 
 rx: rx.o lib.o radiotap.o fec.o
-	gcc -o $@ $^ $(LDFLAGS)
-
+	$(CC) $(LDFLAGS) $^ -o $@ 
 
 tx: tx.o lib.o fec.o
-	gcc -o $@ $^ $(LDFLAGS)
-
+	$(CC) $(LDFLAGS) $^ -o $@
 
 rx_status_test: rx_status_test.o
-	gcc -o $@ $^ $(LDFLAGS)
+	$(CC) $(LDFLAGS) $^ -o $@
 
 clean:
-	rm -f rx_status_test rx tx *~ *.o
+	rm -f rx_status_test rx tx *.o
 
